@@ -1,0 +1,157 @@
+{
+    "code":"",
+    "msg":"",
+    "data":{}
+}
+
+{
+    "code":"1",
+    "msg":"1",
+    "data":{
+        "items":[
+            {
+                "key":"1",
+                "title":"1"
+            }
+        ],
+        "indicators":[
+            {
+                "id":1,
+                "name":"1",
+                "icon":"1",
+                "intro":"",
+                "conditions":[
+                    {
+                        "id":"",
+                        "name":"",
+                        "params":[
+                            {
+                                "name":"",
+                                "value":""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "push_channels":[
+            {
+                "push_channel":"",
+                "name":""
+            }
+        ]
+    }
+}
+
+{
+    "code":"",
+    "msg":"",
+    "data":[
+        {
+            "id":"",
+            "title":"",
+            "content":"",
+            "icon":"",
+            "push_channels":[
+                {
+                    "push_channel":"",
+                    "name":"",
+                    "status":1
+                }
+            ]
+        }
+    ]
+}
+
+// 提醒事件列表（信号预警异动播报）
+{
+    "code":"",
+    "msg":"",
+    "data":{
+        "last_id":12,
+        "data":[
+            {
+                "id":1,
+                "title":"",
+                "content":"",
+                "timestamp":12,
+                "push_channels":[
+                    {
+                        "push_channel":"",
+                        "name":"",
+                        "status":1
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+
+// 持仓异动--配置
+
+{
+    "code":"",
+    "msg":"",
+    "data":[
+        {
+            "id":1,
+            "icon":"",
+            "title":"",
+            "status":1
+        }
+    ]
+}
+
+// 持仓异动--异动播报
+{
+    "code":"",
+    "msg":"",
+    "data":[
+        {
+            "day":"",
+            "list":[
+                {
+                    "id":1,
+                    "time":1,
+                    "title":"",
+                    "content":""
+                }
+            ]
+        }
+    ]
+}
+
+// 推特--配置及关注列表
+{
+    "code":"",
+    "msg":"",
+    "data":{
+        "push_status":1,
+        "list":[
+            {
+                "id":"",
+                "nick_name":"",
+                "head_img":"",
+                "twitter_account":"",
+                "source":1
+            }
+        ]
+    }
+}
+
+// 推特--搜索列表
+{
+    "code":"",
+    "msg":"",
+    "data":[
+        {
+            "id":"",
+            "nick_name":"",
+            "head_img":"",
+            "twitter_account":"",
+            "source":1
+        }
+    ]
+    
+}

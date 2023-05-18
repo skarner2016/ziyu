@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/database" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/bus" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/pagination" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/container" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/macroable" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/events" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/support" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/pipeline" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/webman/console" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/conditionable" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/workerman/workerman" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/workerman/webman-framework" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/webman/vendor/illuminate/redis" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
