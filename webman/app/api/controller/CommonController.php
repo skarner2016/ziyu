@@ -2,23 +2,27 @@
 
 namespace app\api\controller;
 
-use Illuminate\Support\Arr;
+use app\enum\MessageCode;
 use app\service\CommonService;
 use support\Request;
+use support\trait\ApiResponse;
 
-class CommonController
+class CommonController extends ApiController
 {
-    public function code(Request $request)
+    use ApiResponse;
+    
+    public function messageCode(Request $request)
     {
         // TODO: validate parameters
-        $type         = $request->input('type');
-        $codeTypeList = CommonService::CODE_CONFIG_MAP;
+        $type = $request->input('type');
+        $account = $request->input('account');
         
+        $codeList = array_values(MessageCode::cases());
         $commonService = new CommonService();
+        $code = $commonService->getCodeByType($account, $type);
         
-        $code = $commonService->getCodeByType($type);
+        // TODO: send message
         
-        
-        return response(__CLASS__);
+        return $this->success();
     }
 }

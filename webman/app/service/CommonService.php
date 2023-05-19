@@ -2,30 +2,82 @@
 
 namespace app\service;
 
+use app\enum\App;
+use support\Redis;
+use app\enum\MessageCode;
+use app\enum\Error;
+use app\cache\key\Common;
 use Illuminate\Support\Arr;
+use support\exception\ApiException;
 
 class CommonService
 {
-    const CODE_TYPE_REGISTER = 'register';
-    
-    const CODE_CONFIG_VALID_TIME = 'valid_time'; // 有效期
-    const CODE_CONFIG_MAX_RETRY  = 'max_retry';  // 重试错误次数
-    const CODE_CONFIG_RATE_LIMIT = 'rate_limit'; // 重试错误次数(次/小时)
-    
-    const CODE_CONFIG_MAP = [
-        self::CODE_TYPE_REGISTER => [
-            self::CODE_CONFIG_VALID_TIME => 600,
-            self::CODE_CONFIG_MAX_RETRY  => 5,
-            self::CODE_CONFIG_RATE_LIMIT => 6,
-        ],
-    ];
-    
-    public function getCodeByType($type)
+    public function getCodeByType($account, $type)
     {
-        $rateLimit = Arr::get(CommonService::CODE_CONFIG_MAP, $type . '.' . CommonService::CODE_CONFIG_RATE_LIMIT);
         
-        // 是否限频
-        $rateLimitCache = 1;
-    
+        // TODO: 逻辑有问题
+        $rateLimit      = MessageCode::getRateLimit($type);
+        $rateLimitCache = $this->getUserRateLimitByType($account, $type);
+        
+        if ($rateLimitCache >= $rateLimit) {
+            throw new ApiException(Error::CodeGetMessageCodeTooMuch->value);
+        }
+        
+        $code = generate_random_code();
+        $ttl  = 60 * 60;
+        $this->increMessageCodeItem($account, $type, $rateLimitCache + 1, $ttl);
+        $this->setMessageCode($account, $type, $code);
+        
+        return $code;
     }
+    
+    private function getMessageCodeCacheKey($account, $type): string
+    {
+        return (new Common())->messageCode($type, $account);
+    }
+    
+    private function getMessageCodeRateLimitCacheKey($account, $type): string
+    {
+        return (new Common())->messageCodeRateLimit($type, $account);
+    }
+    
+    
+    private function getUserRateLimitByType($account, $type)
+    {
+        $cacheKey = $this->getMessageCodeRateLimitCacheKey($account, $type);
+        
+        return Redis::connection(App::REDIS_DEFAULT)
+            ->client()
+            ->get($cacheKey);
+    }
+    
+    private function increMessageCodeItem($account, $type, $value, $ttl)
+    {
+    
+        $cacheKey = $this->getMessageCodeRateLimitCacheKey($account, $type);
+    
+        dump(__METHOD__, __LINE__, $cacheKey, $value);
+    
+    
+        if ($value == 1) {
+            return Redis::connection(App::REDIS_DEFAULT)
+                ->client()
+                ->setEx($cacheKey, $ttl, $value);
+        }
+        
+        return Redis::connection(App::REDIS_DEFAULT)
+            ->client()
+            ->set($cacheKey, $value);
+    }
+    
+    private function setMessageCode($account, $type, $code): bool
+    {
+        $cacheKey = $this->getMessageCodeCacheKey($account, $type);
+        $ttl      = MessageCode::getValidTime($type);
+        
+        return Redis::connection(App::REDIS_DEFAULT)
+            ->client()
+            ->setEx($cacheKey, $ttl, $code);
+    }
+    
 }

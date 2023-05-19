@@ -14,4 +14,5 @@
 
 return [
     '' => support\exception\Handler::class,
+    'api' => support\exception\ApiHandler::class,
 ];

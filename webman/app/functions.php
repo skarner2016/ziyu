@@ -3,9 +3,14 @@
  * Here is your custom functions.
  */
 
-if (!function_exists('generate_message_code')) {
-    function generate_message_code(): int
+if (!function_exists('generate_random_code')) {
+    function generate_random_code($length = 6): int
     {
-        return rand(100000, 999999);
+        $min = str_pad('1', $length, '0');
+        $max = str_pad('9', $length, '9');
+        $min = intval($min);
+        $max = intval($max);
+        
+        return rand($min, $max);
     }
 }
